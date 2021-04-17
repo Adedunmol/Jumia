@@ -1,0 +1,38 @@
+{% extends 'base.html' %}{% block title %} User Posts{% endblock %}
+
+{% block content %}
+<ins><h1>{{user.username}} has ({{posts.total}}) posts</h1></ins>
+    <div>
+        <div class="row row-cols-1 row-cols-md-3 g-4 mt-1">
+            {% for post in posts.items %}
+              <div class="col">
+                <div class="card h-100" style="width: 25rem;">
+                  <img src="{{url_for('static', filename='image/' + post.image_file)}}" class="card-img-top" style="width: 100%; height: 15vw; object-fit: contain;">
+                  <div class="card-body">
+                    <h5 class="card-title">{{post.title}}</h5>
+                    <div class="row">
+                        <div class="col-2 text-truncate">
+                            <i style="max-width: 80%;">{{post.description}}</i>
+                        </div>
+                    </div>
+                    <h3> {{ post.price }}</h3>
+                    <a href="{{ url_for('views.post', post_id=post.id )}}" class="btn btn-primary">Check it out</a>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+      {% if page_num %}
+        {% if posts.page == page_num %}
+          <a class="btn btn-info mb-4" href="{{ url_for('views.home', page=page_num) }}">{{ page_num }}</a>
+        {% else %}
+          <a class="btn btn-outline-info mb-4" href="{{ url_for('views.home', page=page_num) }}">{{ page_num }}</a>
+        {% endif %}
+      {% else %}
+        ...
+      {% endif %}
+    {% endfor %}
+{% endblock %}
