@@ -1,6 +1,7 @@
-from flask import Blueprint, render_template, redirect, url_for, request, flash, abort
+from flask import Blueprint, render_template, redirect, url_for, request, flash, abort, g
+from flask.globals import current_app
 from flask_login import current_user, login_user, logout_user, login_required
-from .forms import RegistrationForm, LoginForm, PostForm, UpdateAccountForm, UpdatePostForm, EmailResetForm, PasswordResetForm
+from .forms import RegistrationForm, LoginForm, PostForm, UpdateAccountForm, UpdatePostForm, EmailResetForm, PasswordResetForm, SearchForm
 from . import db, bcrypt, mail
 from .models import User, Post
 import os
@@ -10,6 +11,25 @@ from flask_mail import Message
 
 auth = Blueprint('auth', __name__)
 
+@auth.before_app_request
+def before_request():
+    if current_user.is_authenticated:
+        g.search_form = SearchForm()
+
+@auth.route('/search')
+@login_required
+def search():
+    if not g.search_form.validate():
+        return redirect(url_for('views.home'))
+    page = request.args.get('page', 1, type=int)
+    posts, total = Post.search(g.search_form.q.data, page,
+                               current_app.config['POSTS_PER_PAGE'])
+    next_url = url_for('auth.search', q=g.search_form.q.data, page=page + 1) \
+        if total > page * current_app.config['POSTS_PER_PAGE'] else None
+    prev_url = url_for('auth.search', q=g.search_form.q.data, page=page - 1) \
+        if page > 1 else None
+    return render_template('search.html', title='Search', posts=posts,
+                           next_url=next_url, prev_url=prev_url) 
 
 @auth.route('/register', methods=['GET', 'POST'])
 def register():

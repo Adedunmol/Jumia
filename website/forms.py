@@ -1,3 +1,5 @@
+from flask.app import Flask
+from flask.globals import request
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, BooleanField, TextAreaField, validators
 from wtforms.validators import DataRequired, Length, EqualTo, ValidationError
@@ -67,3 +69,14 @@ class PasswordResetForm(FlaskForm):
     password = StringField('Password', validators=[DataRequired()])
     confirm_password = StringField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('Reset password')
+
+
+class SearchForm(FlaskForm):
+    q = StringField('Search', validators=[DataRequired()])
+
+    def __init__(self, *args, **kwargs):
+        if 'formdata' not in kwargs:
+            kwargs['formdata'] = request.args
+        if 'csrf_enabled' not in kwargs:
+            kwargs['csrf_enabled'] = False
+        super(SearchForm, self).__init__(*args, **kwargs)

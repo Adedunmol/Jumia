@@ -35,6 +35,13 @@
         <li class="nav-item">
           <a class="nav-link" href="{{ url_for('auth.logout')}}">Logout</a>
         </li>
+        {% if g.search_form %}
+        <form class="navbar-form navbar-left" method="GET" action="{{ url_for('auth.search') }}">
+          <div class="form-group">
+              {{ g.search_form.q(size=20, class='form-control', placeholder=g.search_form.q.label.text) }}
+          </div>
+        </form>
+        {% endif %}
         {% else %}
         <li class="nav-item">
           <a class="nav-link" href="{{ url_for('auth.login')}}">Login</a>

@@ -10,3 +10,4 @@ class Config:
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     MAIL_USE_TLS = True
     ELASTICSEARCH_URL = 'http://localhost:9200'
+    POSTS_PER_PAGE = 10
