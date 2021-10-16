@@ -6,6 +6,7 @@ from flask_bcrypt import Bcrypt
 from flask_mail import Mail
 from website.config import Config
 from elasticsearch import Elasticsearch
+from flask_babel import Babel
 
 db = SQLAlchemy()
 login_manager = LoginManager()
