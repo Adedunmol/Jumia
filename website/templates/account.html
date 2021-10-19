@@ -11,8 +11,8 @@
                     <div class="user-avatar">
                         <img src="{{image}}" alt="jumia.png">
                     </div>
-                    <h5>Username:</h5><h6 class="user-name">{{current_user.username}}</h6>
-                    <h5>Email:</h5><h6 class="user-email">{{current_user.email}}</h6>
+                    <h5>{{_('Username')}}:</h5><h6 class="user-name">{{current_user.username}}</h6>
+                    <h5>{{_('Email')}}:</h5><h6 class="user-email">{{current_user.email}}</h6>
                 </div>
             </div>
         </div>
@@ -23,7 +23,7 @@
         <div class="card-body">
             <div class="row gutters">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                    <h6 class="mb-2 text-primary">Personal Details</h6>
+                    <h6 class="mb-2 text-primary">{{_('Personal Details')}}</h6>
                 </div>
                 <form action="" method="POST" enctype="multipart/form-data">
                     {{ form.hidden_tag() }}

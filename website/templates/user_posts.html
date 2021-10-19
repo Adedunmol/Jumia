@@ -12,11 +12,11 @@
                     <h5 class="card-title">{{post.title}}</h5>
                     <div class="row">
                         <div class="col-2 text-truncate">
-                            <i style="max-width: 80%;">{{post.description}}</i>
+                            <i style="max-width: 80%;">{{_('%(description)s', description=post.description)}}</i>
                         </div>
                     </div>
                     <h3> {{ post.price }}</h3>
-                    <a href="{{ url_for('views.post', post_id=post.id )}}" class="btn btn-primary">Check it out</a>
+                    <a href="{{ url_for('views.post', post_id=post.id )}}" class="btn btn-primary">{{_('Check it out')}}</a>
                   </div>
                 </div>
               </div>

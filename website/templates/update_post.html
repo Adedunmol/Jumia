@@ -10,8 +10,8 @@
         <div class="col-md-8">
           <div class="card-body">
             <h5 class="card-title">{{post.title}}</h5>
-            <p class="card-text">{{post.description}}</p>
-            Posted by: <a href="{{url_for('auth.user_posts', username=post.author.username)}}">{{post.author.username}}</a>
+            <p class="card-text">{{_('%(description)s', description=post.description)}}</p>
+            {{_('Posted by')}}: <a href="{{url_for('auth.user_posts', username=post.author.username)}}">{{post.author.username}}</a>
             <h3> <i style="max-width: 80%;">{{post.price}}</i></h3>
           </div>
         </div>

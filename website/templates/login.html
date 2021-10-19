@@ -40,11 +40,11 @@
       {{ form.submit(class='btn btn-primary')}}
     </div>
     <div class="border-top pt-3">
-        <small>Need an account? <a class="ml-2" href="{{ url_for('auth.register')}}">Sign Up</a>
+        <small>{{_('Need an account?')}} <a class="ml-2" href="{{ url_for('auth.register')}}">{{_('Sign Up')}}</a>
         </small>
     </div>
      <div>
-        <small><a class="ml-2" href="{{ url_for('auth.reset_email')}}">Forgot Password</a>
+        <small><a class="ml-2" href="{{ url_for('auth.reset_email')}}">{{_('Forgot Password')}}</a>
         </small>
     </div>
 </form>

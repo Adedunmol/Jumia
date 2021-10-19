@@ -8,6 +8,7 @@ import os
 import secrets
 from PIL import Image
 from flask_mail import Message
+from flask_babel import _
 
 auth = Blueprint('auth', __name__)
 
@@ -41,7 +42,7 @@ def register():
         user = User(username=form.username.data, email=form.email.data, password=hashed_pw)
         db.session.add(user)
         db.session.commit()
-        flash('Your account has been created!', category='success')
+        flash(_('Your account has been created!'), category='success')
         return redirect(url_for('auth.login'))
     return render_template('register.html', form=form)
 
@@ -57,11 +58,11 @@ def login():
         user = User.query.filter_by(email=email).first()
         if user and bcrypt.check_password_hash(user.password, password):
             login_user(user, remember=form.remember.data)
-            flash('You are logged in successfully', category='success')
+            flash(_('You are logged in successfully'), category='success')
             next_page = request.args.get('next')
             return redirect(next_page) if next_page else redirect(url_for('views.home'))
         else:
-            flash('The details you entered is not correct', category='danger')
+            flash(_('The details you entered is not correct'), category='danger')
     return render_template('login.html', form=form)
 
 
@@ -96,7 +97,7 @@ def new_post():
                      price=form.price.data, image_file=image_file, author=current_user)
         db.session.add(post)
         db.session.commit()
-        flash('Your product has been posted', category='success')
+        flash(_('Your product has been posted'), category='success')
         return redirect(url_for('views.home'))
     return render_template('new_post.html', form=form)
 
@@ -112,7 +113,7 @@ def account():
         current_user.email = form.email.data
         current_user.username = form.username.data
         db.session.commit()
-        flash('Your account has been updated', category='success')
+        flash(_('Your account has been updated'), category='success')
     elif request.method == 'GET':
         form.email.data = current_user.email
         form.username.data = current_user.username
@@ -142,7 +143,7 @@ def update_post(post_id):
         post.description = form.description.data
         post.price = form.price.data
         db.session.commit()
-        flash('Your product has been posted', category='success')
+        flash(_('Your product has been posted'), category='success')
         return redirect(url_for('views.home'))
     elif request.method == 'GET':
         form.title.data = post.title
@@ -156,7 +157,7 @@ def delete_post(post_id):
     post = Post.query.get_or_404(post_id)
     db.session.delete(post)
     db.session.commit()
-    flash('Your product has been deleted.', category='success')
+    flash(_('Your product has been deleted.'), category='success')
     return redirect(url_for('views.home'))
 
 
@@ -178,7 +179,7 @@ def reset_email():
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
         send_mail(user)
-        flash('A link has been sent to your email', category='success')
+        flash(_('A link has been sent to your email'), category='success')
         return redirect(url_for('auth.login'))
     return render_template('reset_password_email.html', form=form)
 
@@ -190,12 +191,12 @@ def reset_password(token):
     form = PasswordResetForm()
     user = User.verify_reset_token(token)
     if user is None:
-        flash('This token is invalid or expired', category='info')
+        flash(_('This token is invalid or expired'), category='info')
         return redirect(url_for('auth.reset_mail'))
     if form.validate_on_submit():
         hashed_pw = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
         user.password = hashed_pw
         db.session.commit()
-        flash('Your password has been updated. You can now log in.', category='success')
+        flash(_('Your password has been updated. You can now log in.'), category='success')
         return redirect(url_for('auth.login'))
     return render_template('password_reset.html', form=form)
