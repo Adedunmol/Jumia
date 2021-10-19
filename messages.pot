@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-10-17 18:54+0100\n"
+"POT-Creation-Date: 2021-10-19 09:54+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -138,8 +138,8 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: website/templates/_post.html:10 website/templates/update_post.html:13
-#: website/templates/user_posts.html:15
+#: website/templates/_post.html:10 website/templates/home.html:13
+#: website/templates/update_post.html:13 website/templates/user_posts.html:15
 #, python-format
 msgid "%(description)s"
 msgstr ""
@@ -184,6 +184,10 @@ msgstr ""
 msgid "Logout"
 msgstr ""
 
+#: website/templates/home.html:17 website/templates/user_posts.html:19
+msgid "Check it out"
+msgstr ""
+
 #: website/templates/login.html:43
 msgid "Need an account?"
 msgstr ""
@@ -216,16 +220,16 @@ msgstr ""
 msgid "Sign In"
 msgstr ""
 
+#: website/templates/search.html:4
+msgid "Search Results"
+msgstr ""
+
 #: website/templates/search.html:13
 msgid "Previous results"
 msgstr ""
 
 #: website/templates/search.html:18
 msgid "Next results"
-msgstr ""
-
-#: website/templates/user_posts.html:19
-msgid "Check it out"
 msgstr ""
 
 #: website/templates/errors/404.html:5

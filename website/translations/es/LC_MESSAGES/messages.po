@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-10-17 18:54+0100\n"
+"POT-Creation-Date: 2021-10-19 09:54+0100\n"
 "PO-Revision-Date: 2021-10-18 08:45+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -139,8 +139,8 @@ msgstr ""
 msgid "Search"
 msgstr "Buscar"
 
-#: website/templates/_post.html:10 website/templates/update_post.html:13
-#: website/templates/user_posts.html:15
+#: website/templates/_post.html:10 website/templates/home.html:13
+#: website/templates/update_post.html:13 website/templates/user_posts.html:15
 #, python-format
 msgid "%(description)s"
 msgstr ""
@@ -185,6 +185,10 @@ msgstr "Perfil"
 msgid "Logout"
 msgstr "Salir"
 
+#: website/templates/home.html:17 website/templates/user_posts.html:19
+msgid "Check it out"
+msgstr ""
+
 #: website/templates/login.html:43
 msgid "Need an account?"
 msgstr ""
@@ -217,6 +221,11 @@ msgstr ""
 msgid "Sign In"
 msgstr ""
 
+#: website/templates/search.html:4
+#, fuzzy
+msgid "Search Results"
+msgstr "Resultados proximos"
+
 #: website/templates/search.html:13
 msgid "Previous results"
 msgstr "Resultados previos"
@@ -224,10 +233,6 @@ msgstr "Resultados previos"
 #: website/templates/search.html:18
 msgid "Next results"
 msgstr "Resultados proximos"
-
-#: website/templates/user_posts.html:19
-msgid "Check it out"
-msgstr ""
 
 #: website/templates/errors/404.html:5
 msgid "Oops. Page Not Found (404)"
