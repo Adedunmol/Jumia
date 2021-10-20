@@ -1,7 +1,7 @@
 from website import create_app, db
 from search import add_to_index, remove_from_index, query_index
 from website.models import Post
-from flask_migrate import Migrate
+from flask_migrate import Migrate # type: ignore
 from website import cli
 
 app = create_app()

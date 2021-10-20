@@ -9,6 +9,8 @@ from website.config import Config
 from elasticsearch import Elasticsearch
 from flask_babel import Babel
 from flask_babel import lazy_gettext as _l
+import stripe
+import os
 
 
 db = SQLAlchemy()
@@ -28,7 +30,7 @@ def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
     app.elasticsearch = Elasticsearch(app.config['ELASTICSEARCH_URL']) if app.config['ELASTICSEARCH_URL'] else None
-
+    stripe.api_key = os.environ.get('STRIPE_SECRET_KEY')
 
     from .auth import auth
     from .views import views

@@ -1,6 +1,6 @@
-from main import app
+from jum import app
 import os
-import click
+import click # type: ignore
 
 @app.cli.group()
 def translate():
