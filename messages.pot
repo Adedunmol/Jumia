@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-10-19 09:54+0100\n"
+"POT-Creation-Date: 2021-10-30 12:43+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 
-#: website/__init__.py:18
+#: website/__init__.py:22
 msgid "Please log in to access this page."
 msgstr ""
 
@@ -74,7 +74,7 @@ msgstr ""
 msgid "Confirm_password"
 msgstr ""
 
-#: website/forms.py:16 website/templates/base.html:50
+#: website/forms.py:16 website/templates/base.html:53
 msgid "Register"
 msgstr ""
 
@@ -90,7 +90,7 @@ msgstr ""
 msgid "Remember me"
 msgstr ""
 
-#: website/forms.py:33 website/templates/base.html:47
+#: website/forms.py:33 website/templates/base.html:50
 msgid "Login"
 msgstr ""
 
@@ -148,10 +148,6 @@ msgstr ""
 msgid "Posted by"
 msgstr ""
 
-#: website/templates/_post.html:18 website/templates/post.html:20
-msgid "Buy"
-msgstr ""
-
 #: website/templates/_post.html:19 website/templates/post.html:21
 msgid "Add to cart"
 msgstr ""
@@ -181,6 +177,10 @@ msgid "Account"
 msgstr ""
 
 #: website/templates/base.html:36
+msgid "CHat"
+msgstr ""
+
+#: website/templates/base.html:39
 msgid "Logout"
 msgstr ""
 

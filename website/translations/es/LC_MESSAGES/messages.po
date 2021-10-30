@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-10-19 09:54+0100\n"
+"POT-Creation-Date: 2021-10-30 12:43+0100\n"
 "PO-Revision-Date: 2021-10-18 08:45+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 
-#: website/__init__.py:18
+#: website/__init__.py:22
 msgid "Please log in to access this page."
 msgstr "por favor ingrese para acceder a esta pagina"
 
@@ -75,7 +75,7 @@ msgstr "Contrasena"
 msgid "Confirm_password"
 msgstr ""
 
-#: website/forms.py:16 website/templates/base.html:50
+#: website/forms.py:16 website/templates/base.html:53
 msgid "Register"
 msgstr "Registrarse"
 
@@ -91,7 +91,7 @@ msgstr "Por favor use una direccion de email differente."
 msgid "Remember me"
 msgstr "Recordarme"
 
-#: website/forms.py:33 website/templates/base.html:47
+#: website/forms.py:33 website/templates/base.html:50
 msgid "Login"
 msgstr "Ingresar"
 
@@ -149,10 +149,6 @@ msgstr ""
 msgid "Posted by"
 msgstr ""
 
-#: website/templates/_post.html:18 website/templates/post.html:20
-msgid "Buy"
-msgstr ""
-
 #: website/templates/_post.html:19 website/templates/post.html:21
 msgid "Add to cart"
 msgstr ""
@@ -182,6 +178,10 @@ msgid "Account"
 msgstr "Perfil"
 
 #: website/templates/base.html:36
+msgid "CHat"
+msgstr ""
+
+#: website/templates/base.html:39
 msgid "Logout"
 msgstr "Salir"
 
@@ -251,4 +251,7 @@ msgid ""
 "We are experiencing some trouble on our end. Please try again in the near"
 " future"
 msgstr ""
+
+#~ msgid "Buy"
+#~ msgstr ""
 

@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     var socket = io();
 
     let room = 'Phones';
-    joinRoom("Phones")
+    joinRoom("Phones");
 
     // Display incoming messages
     socket.on('message', data => {
