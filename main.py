@@ -2,7 +2,7 @@ import socketio
 from werkzeug import debug
 from website import create_app, db
 from search import add_to_index, remove_from_index, query_index
-from website.models import Post
+from website.models import Post, Room
 from flask_migrate import Migrate
 from website import cli
 import os
@@ -13,7 +13,7 @@ Migrate(app, db)
 
 @app.shell_context_processor
 def inject_functions():
-    return dict(db=db, add_to_index=add_to_index, remove_from_index=remove_from_index, query_index=query_index, Post=Post, app=app)
+    return dict(db=db, add_to_index=add_to_index, remove_from_index=remove_from_index, query_index=query_index, Post=Post, app=app, Room=Room)
 
 
 @app.cli.group()

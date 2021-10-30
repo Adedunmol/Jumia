@@ -3,15 +3,12 @@ from flask_login import login_required, current_user
 from flask_socketio import emit, send, join_room, leave_room
 import socketio
 from stripe.api_resources import line_item, payment_method
-from .models import Post, User
+from .models import Post, Room, User
 import stripe
 from . import socketio
 from time import localtime, strftime
 
 views = Blueprint('views', __name__)
-
-ROOMS = ['phones', 'games', 'laptops', 'shoes', 'clothing']
-
 
 @views.route('/', methods=['GET', 'POST'])
 def home():
@@ -63,7 +60,11 @@ def cancel():
 
 @views.route('/chat', methods=['GET', 'POST'])
 def chat():
-    return render_template('chat.html', username=current_user.username, rooms=ROOMS)
+    new_rooms = Room.query.all()
+    rooms = []
+    for room in new_rooms:
+        rooms.append(room.name)
+    return render_template('chat.html', username=current_user.username, rooms=rooms)
 
 @socketio.on('message')
 def message(data):

@@ -6,6 +6,24 @@ from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from search import *
 
 
+class Room(db.Model):
+    __tablename__ = 'rooms'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(64))
+
+
+    @staticmethod
+    def insert_rooms():
+        ROOMS = ['phones', 'games', 'laptops', 'shoes', 'clothing']
+
+        for r in ROOMS:
+            rm = Room.query.filter_by(name=r).first()
+            if rm is None:
+                rm = Room(name=r)
+            db.session.add(rm)
+        db.session.commit()
+
+
 class SearchableMixin(object):
     @classmethod
     def search(cls, expression, page, per_page):
