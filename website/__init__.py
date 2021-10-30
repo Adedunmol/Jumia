@@ -5,12 +5,14 @@ from os import path
 from flask_login import LoginManager
 from flask_bcrypt import Bcrypt
 from flask_mail import Mail
+import socketio
 from website.config import Config
 from elasticsearch import Elasticsearch
 from flask_babel import Babel
 from flask_babel import lazy_gettext as _l
 import stripe
 import os
+from flask_socketio import SocketIO
 
 
 db = SQLAlchemy()
@@ -21,6 +23,7 @@ login_manager.login_message = _l('Please log in to access this page.')
 bcrypt = Bcrypt()
 mail = Mail()
 babel = Babel()
+socketio = SocketIO()
 
 @babel.localeselector
 def get_locale():
@@ -45,6 +48,7 @@ def create_app():
     bcrypt.init_app(app)
     mail.init_app(app)
     babel.init_app(app)
+    socketio.init_app(app)
 
     from .models import User, Post
 

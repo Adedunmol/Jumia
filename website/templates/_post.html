@@ -15,7 +15,7 @@
             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" href="{{url_for('auth.delete_post', post_id=post.id)}}"> Delete </button>
             {% else %}
             <p class="card-text"><small class="text-muted">Date posted: {{post.date_posted.strftime('%Y-%m-%d')}}</small></p>
-            <a href="#" class="btn btn-primary">{{_('Buy')}}</a>
+            <form method="POST" action="{{ url_for('views.order', product_id=post.id) }}"> <input type="submit" value="Buy now!" class="btn btn-primary"></form>
             <a href="#" class="btn btn-primary">{{_('Add to cart')}}</a>
             {% endif %}
           </div>
