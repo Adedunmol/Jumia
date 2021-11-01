@@ -69,7 +69,7 @@ def chat():
 @socketio.on('message')
 def message(data):
 
-    print(f"\n\n{data}\n\n")
+#    print(f"\n\n{data}\n\n")
     
     send({'msg': data['msg'], 'username': data['username'], 'timestamp': strftime('%b-%d %I:%M%p', localtime())}, room=data['room'])
 

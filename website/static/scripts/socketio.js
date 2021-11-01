@@ -26,6 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Send message
     document.querySelector('#send_message').onclick = () => {
         socket.send({'msg':document.querySelector('#user_message').value, 'username': username, 'room': room});
+        // Clear input area
+        document.querySelector('#user_message').value = " ";
     }
 
     // Room selection
@@ -53,6 +55,8 @@ document.addEventListener('DOMContentLoaded', () => {
         socket.emit('join', {'username': username, 'room': room});
         // Clear message area
         document.querySelector('#display-message-section').innerHTML = ''
+        // Autofocus on text box
+        document.querySelector('#user_message').focus();
     }
 
     // Print system message
